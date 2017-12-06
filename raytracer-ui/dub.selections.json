@@ -1,0 +1,12 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"ddmp": "0.0.1-0.dev.3",
+		"dsfml": "~master",
+		"fluent-asserts": "0.7.1",
+		"libdparse": "0.7.1",
+		"raytracer-domain": {"path":"../raytracer-domain"},
+		"raytracer-maths": {"path":"../raytracer-maths"},
+		"unit-threaded": "0.7.32"
+	}
+}

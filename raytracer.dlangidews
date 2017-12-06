@@ -1,0 +1,11 @@
+{
+    "name": "raytracer",
+    "description": " / ",
+    "projects": {
+        "raytracer-domain": "raytracer-domain/dub.json",
+        "raytracer-maths": "raytracer-maths/dub.json",
+        "raytracer-ui": "raytracer-ui/dub.json"
+    },
+    "includePath": {
+    }
+}
