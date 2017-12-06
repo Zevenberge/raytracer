@@ -1,0 +1,21 @@
+{
+    "name": "raytracer-maths",
+    "targetName": "raytracer-maths",
+    "targetType": "staticLibrary",
+    "targetPath": "lib",
+    "configurations": [
+        { "name": "library" },
+        {
+            "name": "unittest",
+            "targetType": "executable",
+            "targetPath": "bin",
+            "preBuildCommands": ["dub run unit-threaded -c gen_ut_main -- -f bin/ut.d"],
+            "mainSourceFile": "bin/ut.d",
+            "excludedSourceFiles": ["src/main.d"],
+            "dependencies": {
+                "unit-threaded": "~>0.7.11",
+                "fluent-asserts": "~>0.7.1"
+            }
+        }
+    ]
+}
