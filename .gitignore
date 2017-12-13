@@ -3,3 +3,7 @@ bin
 lib
 
 *.wssettings
+
+*.lst
+
+raytracer-maths/dub\.selections\.json
