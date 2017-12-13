@@ -3,6 +3,10 @@ module raytracer.ui.game;
 import std.experimental.logger;
 import dsfml.graphics.renderwindow;
 import raytracer.domain.scene;
+import raytracer.domain.sphere;
+import raytracer.domain.viewport;
+import raytracer.maths.lightsource;
+import raytracer.maths.point;
 import raytracer.ui.framework.application;
 import raytracer.ui.framework.controller;
 import raytracer.ui.raytracer;
@@ -16,8 +20,18 @@ class Game : Application
 
     protected override Controller initializeController()
     {
-        Scene scene;
-        return new RaytracerController(this, new Raytracer(scene));
+        return new RaytracerController(this, new Raytracer(createClassicScene()));
+    }
+
+    private Scene createClassicScene()
+    {
+        auto viewpoint = Point(0,0,0);
+        auto viewport = new Viewport(Point(-400, 300, 50), Point(400, 300, 50), Point(-400, -300, 50), 400, 300);
+        auto shapeA = new Sphere(Point(0, 0, 100), 200);
+        auto shapeB = new Sphere(Point(100, 150, 130), 50);
+        auto lightA = new LightSource(Point(500, 500, 155), 1);
+        auto lightB = new LightSource(Point(500, -100, 75), 0.5f);
+        return new Scene(viewpoint, viewport, [lightA, lightB], [shapeA, shapeB]);
     }
 
     protected override void applicationStart()

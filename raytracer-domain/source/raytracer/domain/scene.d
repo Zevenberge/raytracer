@@ -23,6 +23,11 @@ class Scene
         _shapes = shapes;
     }
 
+    const(Viewport) viewport() @property pure const
+    {
+        return _viewport;
+    }
+
     private Point _viewpoint;
     private Viewport _viewport;
     private LightSource[] _lightSources;

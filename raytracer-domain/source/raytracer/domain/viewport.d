@@ -11,7 +11,7 @@ import raytracer.maths.point;
 class Viewport
 {
     this(Point topLeft, Point topRight, Point bottomLeft, 
-        size_t amountOfHorizontalPoints, size_t amountOfVerticalPoints)
+        uint amountOfHorizontalPoints, uint amountOfVerticalPoints)
     in
     {
         assert(amountOfHorizontalPoints > 1, "There should be horizontal points");
@@ -29,8 +29,16 @@ class Viewport
     private const Point _topLeft;
     private const Point _topRight;
     private const Point _bottomLeft;
-    private const size_t _amountOfHorizontalPoints;
-    private const size_t _amountOfVerticalPoints;
+    uint amountOfHorizontalPoints() @property pure const
+    {
+        return _amountOfHorizontalPoints;
+    }
+    private const uint _amountOfHorizontalPoints;
+    uint amountOfVerticalPoints() @property pure const
+    {
+        return _amountOfVerticalPoints;
+    }
+    private const uint _amountOfVerticalPoints;
 
     Point getPoint(const Coordinate coordinate)
     {
