@@ -3,7 +3,7 @@ module raytracer.domain.sphere;
 import raytracer.maths.line;
 import raytracer.maths.parametrisation;
 import raytracer.maths.point;
-import raytracer.domain.shape;
+import raytracer.maths.shape;
 
 class Sphere : Shape
 {

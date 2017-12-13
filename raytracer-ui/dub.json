@@ -12,6 +12,7 @@
             "version":"~master",
             "path":"../raytracer-domain"
         },
-        "dsfml":"~master"
+        "dsfml":"~>2.1.1",
+        "dlangui":"~>0.9.173"
     }
 }

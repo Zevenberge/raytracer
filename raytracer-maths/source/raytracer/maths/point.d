@@ -1,5 +1,12 @@
 module raytracer.maths.point;
 
+import std.algorithm;
+import std.array;
+import std.typecons;
+import raytracer.maths.lightsource;
+import raytracer.maths.line;
+import raytracer.maths.shape;
+
 struct Point
 {
     float x() pure nothrow const @property @nogc {return _x;}
@@ -65,4 +72,16 @@ float calculateAngleOfIntersection(const Point one, const Point two) pure nothro
 {
     import std.math;
     return acos((one * two)/(one.norm() * two.norm()));
+}
+
+const(Point)* getNearestPoint(const Point[] points, const Line line) pure nothrow
+{
+    alias Alpha = Tuple!(float, "alpha", const(Point)*, "point");
+    if(points.empty) return null;
+    auto parametrisation = line.parametrise();
+    auto nearestPoint = points
+                .map!(p => Alpha((p - parametrisation.root)*parametrisation.delta, &p))
+                .filter!(p => p.alpha > 0) // Only take the points in positive line of sight
+                .minElement!(p => p.alpha)(Alpha(0f, null)).point;
+    return nearestPoint;
 }

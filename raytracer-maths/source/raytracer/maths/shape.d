@@ -1,4 +1,4 @@
-module raytracer.domain.shape;
+module raytracer.maths.shape;
 
 import raytracer.maths.line;
 import raytracer.maths.point;

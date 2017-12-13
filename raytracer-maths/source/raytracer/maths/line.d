@@ -1,9 +1,11 @@
 module raytracer.maths.line;
 
+import raytracer.maths.lightsource;
 import raytracer.maths.intersection;
 import raytracer.maths.matrix;
 import raytracer.maths.parametrisation;
 import raytracer.maths.point;
+import raytracer.maths.shape;
 
 struct Line
 {
@@ -24,6 +26,11 @@ struct Line
     Parametrisation parametrise() @property pure const nothrow @nogc
     {
         return Parametrisation(_a, _b);
+    }
+
+    float calculateIntensity(LightSource[] lightSources, Shape[] shapes) @property pure const nothrow @nogc
+    {
+        return 0;
     }
 }
 
