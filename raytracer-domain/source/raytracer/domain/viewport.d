@@ -3,10 +3,12 @@ module raytracer.domain.viewport;
 import std.algorithm;
 import std.array;
 import std.range;
+import std.typecons;
 import raytracer.domain.coordinate;
-import raytracer.domain.viewline;
 import raytracer.maths.line;
 import raytracer.maths.point;
+
+alias Viewline = Tuple!(Coordinate, "coordinate", Line, "line");
 
 class Viewport
 {
