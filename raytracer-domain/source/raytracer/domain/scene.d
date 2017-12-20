@@ -1,12 +1,15 @@
 module raytracer.domain.scene;
 
-import raytracer.domain.lightsource;
-import raytracer.domain.shape;
+import std.algorithm.iteration;
+import raytracer.domain.pixel;
 import raytracer.domain.viewport;
+import raytracer.maths.lightsource;
+import raytracer.maths.point;
+import raytracer.maths.shape;
 
 class Scene
 {
-    this(Viewport viewport, LightSource[] lightSources, Shape[] shapes)
+    this(Point viewpoint, Viewport viewport, LightSource[] lightSources, Shape[] shapes)
     in
     {
         assert(viewport, "I need a viewport");
@@ -14,12 +17,25 @@ class Scene
     }
     do
     {
+        _viewpoint = viewpoint;
         _viewport = viewport;
         _lightSources = lightSources;
         _shapes = shapes;
     }
 
+    const(Viewport) viewport() @property pure const
+    {
+        return _viewport;
+    }
+
+    private Point _viewpoint;
     private Viewport _viewport;
     private LightSource[] _lightSources;
     private Shape[] _shapes;
+
+    auto calculatePixels()
+    {
+        return _viewport.getViewLines(_viewpoint)
+            .map!(vl => Pixel(vl.coordinate, vl.line.calculateIntensity(_lightSources, _shapes)));
+    }
 }

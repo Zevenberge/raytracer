@@ -1,0 +1,19 @@
+{
+    "name": "raytracer-ui",
+    "targetName": "raytracer-ui",
+    "targetType": "executable",
+    "targetPath": "bin",
+    "dependencies": {
+        "raytracer-maths": {
+            "version":"~master",
+            "path":"../raytracer-maths"
+        },
+        "raytracer-domain": {
+            "version":"~master",
+            "path":"../raytracer-domain"
+        },
+        "dsfml":"~>2.1.1",
+        "dlangui":"~>0.9.173",
+        "x11": "~>1.0.19",
+    }
+}

@@ -3,18 +3,26 @@ module raytracer.domain.sphere;
 import raytracer.maths.line;
 import raytracer.maths.parametrisation;
 import raytracer.maths.point;
-import raytracer.domain.shape;
+import raytracer.maths.shader;
+import raytracer.maths.shape;
 
 class Sphere : Shape
 {
-    this(const Point center, const float radius)
+    this(const Point center, const float radius, Shader shader)
     {
+        _shader = shader;
         _center = center;
         _radius = radius;
     }
 
+    private Shader _shader;
     private const Point _center;
     private const float _radius;
+
+    const(Shader) shader() @property pure const nothrow @nogc
+    {
+        return _shader;
+    }
     
     Point[] intersections(const Line line) pure const nothrow
     {

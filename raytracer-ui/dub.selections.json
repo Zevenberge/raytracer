@@ -1,0 +1,18 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"ddmp": "0.0.1-0.dev.3",
+		"derelict-ft": "1.1.3",
+		"derelict-gl3": "1.0.23",
+		"derelict-sdl2": "2.0.2",
+		"derelict-util": "2.0.6",
+		"dlangui": "0.9.173",
+		"dsfml": "2.1.1",
+		"fluent-asserts": "0.7.1",
+		"libdparse": "0.7.1",
+		"raytracer-domain": {"path":"../raytracer-domain"},
+		"raytracer-maths": {"path":"../raytracer-maths"},
+		"unit-threaded": "0.7.32",
+		"x11": "1.0.19"
+	}
+}
