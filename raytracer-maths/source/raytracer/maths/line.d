@@ -1,5 +1,6 @@
 module raytracer.maths.line;
 
+import std.algorithm;
 import raytracer.maths.lightsource;
 import raytracer.maths.intersection;
 import raytracer.maths.matrix;
@@ -28,9 +29,13 @@ struct Line
         return Parametrisation(_a, _b);
     }
 
-    float calculateIntensity(LightSource[] lightSources, Shape[] shapes) @property pure const nothrow @nogc
+    float calculateIntensity(const LightSource[] lightSources, const Shape[] shapes) @property pure const nothrow
     {
-        return 0;
+        return shapes.map!((shape) {
+                auto intersection = shape.nearestIntersection(this);
+                if(intersection is null) return 0.0f;
+                return shape.calculateBrightness(*intersection, lightSources, shapes);
+            }).sum;
     }
 }
 

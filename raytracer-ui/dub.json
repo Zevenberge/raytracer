@@ -13,6 +13,7 @@
             "path":"../raytracer-domain"
         },
         "dsfml":"~>2.1.1",
-        "dlangui":"~>0.9.173"
+        "dlangui":"~>0.9.173",
+        "x11": "~>1.0.19",
     }
 }

@@ -1,5 +1,6 @@
 module raytracer.ui.framework.application;
 
+import dsfml.graphics.color;
 import dsfml.graphics.renderwindow;
 import dsfml.window.event;
 import raytracer.ui.framework.controller;
@@ -45,6 +46,7 @@ class Application
     {
         while(_window.isOpen)
         {
+            _window.clear(Color.Magenta);
             Event evt;
             while(_window.pollEvent(evt))
             {
@@ -59,6 +61,7 @@ class Application
                 }
             }
             _controller.draw(_window);
+            _window.display;
         }
     }
 

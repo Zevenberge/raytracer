@@ -9,7 +9,15 @@ class LightSource
         _point = point;
         _brightness = brightness;
     }
-    
+
+    Point point() @property pure const nothrow @nogc
+    {
+        return _point;
+    }
     private Point _point;
+    float brightness() @property pure const nothrow @nogc
+    {
+        return _brightness;
+    }
     private float _brightness;
 }

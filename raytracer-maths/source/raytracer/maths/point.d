@@ -113,6 +113,12 @@ unittest
     [Point(0.5f, 0, 0)].areBetween(Point(0,0,0), Point(1,0,0)).should.equal(true);
 }
 
+@("Als ik een snijpunt heb buiten de grenzen, wordt dit niet als 'ertussen' beschouwd")
+unittest
+{
+    [Point(1.5f, 0, 0)].areBetween(Point(0,0,0), Point(1,0,0)).should.equal(false);
+}
+
 private alias Alpha = Tuple!(float, "alpha", const(Point)*, "point");
 
 private Alpha getNearestAlpha(const Point[] points, const Line line) pure nothrow
